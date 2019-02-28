@@ -1,0 +1,39 @@
+{
+  "name": "gatsby-blog",
+  "private": true,
+  "description": "My personal blog powered by Gatsby",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "pre-deploy":"npm run build && now ./public"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.7",
+    "@emotion/styled": "^10.0.7",
+    "gatsby": "^2.1.11",
+    "gatsby-plugin-emotion": "^4.0.4",
+    "gatsby-plugin-sharp": "^2.0.22",
+    "gatsby-plugin-typography": "^2.2.7",
+    "gatsby-remark-images": "^3.0.5",
+    "gatsby-remark-prismjs": "^3.2.4",
+    "gatsby-source-filesystem": "^2.0.21",
+    "gatsby-transformer-remark": "^2.2.5",
+    "prismjs": "^1.15.0",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "react-typography": "^0.16.18",
+    "typography": "^0.16.18",
+    "typography-theme-de-young": "^0.16.18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-blog"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby-blog/issues"
+  }
+}

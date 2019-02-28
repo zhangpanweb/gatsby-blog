@@ -1,0 +1,20 @@
+@font-face{
+  font-family: 'Consolas';
+  src: url('../fonts/consola.ttf') format('truetype');
+}
+
+@font-face{
+  font-family: 'FZSHJW';
+  src:url('../fonts/FZSHJW.ttf') format('truetype');
+}
+
+:not(pre) > code[class*="language-"]{
+  background: #f9f9d5;
+  color: #171616eb;
+  text-shadow: none;
+  font-size: 100%;
+}
+
+pre[class*="language-"]{
+  background: #313131
+}
