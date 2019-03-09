@@ -4,12 +4,11 @@ const path = require('path');
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   if (node.internal.type === `MarkdownRemark`) {
-    console.log('basePathDir', `${__dirname}/posts`)
     const postName = createFilePath({ node, getNode, basePath: `${__dirname}/posts`, trailingSlash: false });
     createNodeField({
       node,
       name: `postName`,
-      value: postName
+      value: postName.split('/')[2]
     })
   }
 }

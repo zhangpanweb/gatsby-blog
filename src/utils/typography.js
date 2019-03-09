@@ -2,7 +2,7 @@ import Typography from 'typography';
 import deYoungTheme from 'typography-theme-de-young';
 
 Object.assign(deYoungTheme, {
-  bodyFontFamily: ['FZSHJW', 'Consolas', 'serif'],
+  bodyFontFamily: ['Consolas', 'FZSHJW', 'serif'],
   baseFontSize: '16px',
 })
 

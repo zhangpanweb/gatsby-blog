@@ -1,5 +1,5 @@
 ---
-title: "配置一个最基本的React项目"
+title: "配置一个基本的React项目"
 date: "2019-03-07"
 description: "从0开始，配置一个最基本的React项目，内容包括：建立最基本的express服务器、webpack配置、babel配置等"
 

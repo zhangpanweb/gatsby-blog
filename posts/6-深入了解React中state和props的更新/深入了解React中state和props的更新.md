@@ -1,6 +1,6 @@
 ---
 title: "深入了解React中state和props的更新"
-date: "2019-01-06"
+date: "2019-01-07"
 description: "此文为译文，原文见：https://medium.com/react-in-depth/in-depth-explanation-of-state-and-props-update-in-react-51ab94563311"
 
 ---

@@ -1,6 +1,6 @@
 ---
 title: "React事件处理"
-date: "2018-12-16"
+date: "2018-12-15"
 description: "总结自React官方文档，React类组件及函数组件中事件处理"
 
 ---
