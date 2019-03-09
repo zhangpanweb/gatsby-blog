@@ -8,6 +8,22 @@
   src:url('../fonts/FZSHJW.ttf') format('truetype');
 }
 
+
+/** adjust style of blockquote in markdown*/
+blockquote{
+  position: relative;
+}
+blockquote::before{
+  content: '';
+  position: absolute;
+  margin-left: -20px;
+  width: 5px;
+  height: 100%;
+  background: #eaeaea;
+}
+
+
+/** adjust style of inline code */
 :not(pre) > code[class*="language-"]{
   background: #f9f9d5;
   color: #171616eb;
