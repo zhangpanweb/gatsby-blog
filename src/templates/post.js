@@ -11,7 +11,7 @@ const PostTitle = styled.h2`
 export default ({ data }) => {
   const post = data.markdownRemark;
   return (
-    <Layout hideHeader={true}>
+    <Layout hideHeader={true} pageTitle="渊虹小站">
       <PostTitle>{post.frontmatter.title}</PostTitle>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
     </Layout>

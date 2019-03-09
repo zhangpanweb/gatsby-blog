@@ -32,7 +32,7 @@ const PostLink = ({ node }) => (
 export default ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
   return (
-    <Layout>
+    <Layout pageTitle="渊虹小站">
       {posts.map((post => <PostLink key={post.node.id} node={post.node} />))}
     </Layout>
   )

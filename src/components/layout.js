@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { Helmet } from "react-helmet";
 
 import Header from './header';
 
@@ -10,9 +11,16 @@ const Container = styled.div`
   padding: 0 20px;
 `;
 
-export default ({ children, hideHeader }) => (
-  <Container>
-    {!hideHeader ? <Header /> : null}
-    {children}
-  </Container>
+export default ({ children, hideHeader, pageTitle }) => (
+  <React.Fragment>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>{pageTitle}</title>
+    </Helmet>
+    <Container>
+      {!hideHeader ? <Header /> : null}
+      {children}
+    </Container>
+  </React.Fragment>
+
 )
