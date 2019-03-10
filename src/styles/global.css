@@ -25,7 +25,7 @@ blockquote::before{
 
 /** adjust style of inline code */
 :not(pre) > code[class*="language-"]{
-  background: #f9f9d5;
+  background: #efefed;
   color: #171616eb;
   text-shadow: none;
   font-size: 100%;
