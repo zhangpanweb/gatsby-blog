@@ -1,14 +1,3 @@
-@font-face{
-  font-family: 'Consolas';
-  src: url('../fonts/consola.ttf') format('truetype');
-}
-
-@font-face{
-  font-family: 'FZSHJW';
-  src:url('../fonts/FZSHJW.ttf') format('truetype');
-}
-
-
 /** adjust style of blockquote in markdown*/
 blockquote{
   position: relative;

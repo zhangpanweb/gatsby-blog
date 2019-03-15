@@ -10,12 +10,14 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "new-post": "./scripts/new-post.js",
-    "pre-deploy": "npm run build && now ./public",
-    "deploy": "gatsby build && node ./scripts/deploy-github.js"
+    "minify-font": "./scripts/minify-font.js",
+    "pre-deploy": "npm run minify-font && npm run build && now ./public",
+    "deploy": "npm run minify-font && gatsby build && node ./scripts/deploy-github.js"
   },
   "dependencies": {
     "@emotion/core": "^10.0.7",
     "@emotion/styled": "^10.0.7",
+    "fontmin": "^0.9.7-beta",
     "gatsby": "^2.1.11",
     "gatsby-plugin-emotion": "^4.0.4",
     "gatsby-plugin-react-helmet": "^3.0.7",
