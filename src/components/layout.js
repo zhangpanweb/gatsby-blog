@@ -11,14 +11,14 @@ const Container = styled.div`
   padding: 0 20px;
 `;
 
-export default ({ children, hideHeader, pageTitle }) => (
+export default ({ children, pageTitle }) => (
   <React.Fragment>
     <Helmet>
       <meta charSet="utf-8" />
       <title>{pageTitle}</title>
     </Helmet>
     <Container>
-      {!hideHeader ? <Header /> : null}
+      <Header />
       {children}
     </Container>
   </React.Fragment>

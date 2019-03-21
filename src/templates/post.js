@@ -1,20 +1,37 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 
-import Layout from '../components/layout';
+
+const PostContainer = styled.div`
+    margin: 50px auto 50px;
+    max-width: 770px;
+    padding-top: 50px;
+    padding: 50px;
+    background: white;
+`;
 
 const PostTitle = styled.h2`
   margin-bottom: 50px;
+  font-size: 25px;
+`;
+
+const contentCSS = css`
+  font-size:15px;
+  h6{ font-size: 100%};
+  h5{font-size:120%};
+  h4{ font-size: 140%};
+  h2{font-size:200%};
 `;
 
 export default ({ data }) => {
   const post = data.markdownRemark;
   return (
-    <Layout hideHeader={true} pageTitle="渊虹小站">
+    <PostContainer>
       <PostTitle>{post.frontmatter.title}</PostTitle>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
-    </Layout>
+      <div dangerouslySetInnerHTML={{ __html: post.html }} css={contentCSS} />
+    </PostContainer>
   )
 }
 

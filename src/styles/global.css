@@ -1,3 +1,15 @@
+
+html,body{
+  background-color: #eae9e9;
+  word-break:break-word;
+}
+
+/** define font-face */
+@font-face{
+  font-family: 'Consolas';
+  src: url('../fonts/consola.ttf') format('truetype');
+}
+
 /** adjust style of blockquote in markdown*/
 blockquote{
   position: relative;
@@ -21,5 +33,6 @@ blockquote::before{
 }
 
 pre[class*="language-"]{
-  background: #313131
+  background: #313131;
+  font-size: 13px;
 }

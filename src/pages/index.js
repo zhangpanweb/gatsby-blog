@@ -6,8 +6,15 @@ import {css} from '@emotion/core';
 import Layout from '../components/layout';
 
 const titleContainerCss = css`
-  display: flex;
+  display: block;
+  
   text-decoration: none;
+  color: black;
+
+  padding:20px;
+  background: white;
+  border-radius: 5px;
+  margin-bottom: 15px;
 `;
 
 const Title = styled.h3`
@@ -17,6 +24,11 @@ const Title = styled.h3`
 
 const Date = styled.h5`
   display: inline-block;
+  margin-top:20px;
+`;
+
+const Description = styled.p`
+  margin:0;
 `;
 
 const PostLink = ({ node }) => (
@@ -24,8 +36,8 @@ const PostLink = ({ node }) => (
     <Link to={node.fields.postName} css={titleContainerCss}>
       <Title>{node.frontmatter.title}</Title>
       <Date>{node.frontmatter.date}</Date>
+      <Description>{node.frontmatter.description}</Description>
     </Link>
-    <p>{node.frontmatter.description}</p>
   </div>
 )
 
