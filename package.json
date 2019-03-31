@@ -12,7 +12,7 @@
     "new-post": "./scripts/new-post.js",
     "minify-font": "./scripts/minify-font.js",
     "pre-deploy": "npm run build && now ./public",
-    "deploy": "gatsby build && node ./scripts/deploy-github.js"
+    "deploy": "rm -rf public && rm -rf .cache && gatsby build && node ./scripts/deploy-github.js"
   },
   "dependencies": {
     "@emotion/core": "^10.0.7",
