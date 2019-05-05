@@ -23,6 +23,7 @@ const contentCSS = css`
   h5{font-size:120%};
   h4{ font-size: 140%};
   h2{font-size:200%};
+  *{line-height:1.8};
 `;
 
 export default ({ data }) => {

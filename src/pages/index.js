@@ -11,10 +11,10 @@ const titleContainerCss = css`
   text-decoration: none;
   color: black;
 
-  padding:20px;
+  padding: 30px;
   background: white;
   border-radius: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 `;
 
 const Title = styled.h3`
@@ -28,7 +28,8 @@ const Date = styled.h5`
 `;
 
 const Description = styled.p`
-  margin:0;
+  margin: 10px 0 10px;
+  line-height: 2.0;
 `;
 
 const PostLink = ({ node }) => (

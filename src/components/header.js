@@ -6,12 +6,12 @@ const Container = styled.div`
 `;
 
 const Title = styled.h2`
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 `;
 
 const Description = styled.span`
   display: inline-block;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 `;
 
 export default () => (
