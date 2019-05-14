@@ -8,7 +8,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: `postName`,
-      value: postName.split('/')[2]
+      value: 'post/' + postName.split('/')[2]
     })
   }
 }
@@ -36,6 +36,22 @@ exports.createPages = ({ graphql, actions }) => {
         component: postTemplate,
         context: {
           postName: node.fields.postName
+        }
+      })
+    })
+
+    const posts = result.data.allMarkdownRemark.edges;
+    const postsPerPage = 15;
+    const pagesCount = Math.ceil(posts.length / postsPerPage);
+    Array.from({ length: pagesCount }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? '/' : `/${i+1}`,
+        component: path.resolve("./src/templates/blog-list.js"),
+        context: {
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          pagesCount,
+          currentPage: i + 1
         }
       })
     })

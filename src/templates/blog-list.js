@@ -1,9 +1,10 @@
 import React from "react";
 import { Link, graphql } from 'gatsby';
 import styled from '@emotion/styled';
-import {css} from '@emotion/core';
+import { css } from '@emotion/core';
 
 import Layout from '../components/layout';
+import Pagination from '../components/pagination';
 
 const titleContainerCss = css`
   display: block;
@@ -42,18 +43,23 @@ const PostLink = ({ node }) => (
   </div>
 )
 
-export default ({ data }) => {
+export default ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.edges;
   return (
     <Layout pageTitle="渊虹小站">
       {posts.map((post => <PostLink key={post.node.id} node={post.node} />))}
+      <Pagination currentPage={pageContext.currentPage}  pagesCount={pageContext.pagesCount}/>
     </Layout>
   )
 }
 
 export const query = graphql`
-  query {
-    allMarkdownRemark(sort:{fields:frontmatter___date,order:DESC}){
+  query($skip: Int!, $limit: Int!){
+    allMarkdownRemark(
+      sort:{fields:frontmatter___date,order:DESC}
+      limit:$limit
+      skip:$skip
+    ){
       edges{
         node{
           id
@@ -70,4 +76,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
