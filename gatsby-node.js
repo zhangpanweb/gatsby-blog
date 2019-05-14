@@ -8,7 +8,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: `postName`,
-      value: 'post/' + postName.split('/')[2]
+      value: '/post/' + postName.split('/')[2]
     })
   }
 }
