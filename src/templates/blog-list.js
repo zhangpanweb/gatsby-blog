@@ -13,9 +13,10 @@ const titleContainerCss = css`
   color: black;
 
   padding: 30px;
-  background: white;
-  border-radius: 5px;
   margin-bottom: 25px;
+
+  border: 1px solid #cacaca;
+  border-radius: 5px;
 `;
 
 const Title = styled.h3`
@@ -48,7 +49,7 @@ export default ({ data, pageContext }) => {
   return (
     <Layout pageTitle="渊虹小站">
       {posts.map((post => <PostLink key={post.node.id} node={post.node} />))}
-      <Pagination currentPage={pageContext.currentPage}  pagesCount={pageContext.pagesCount}/>
+      <Pagination currentPage={pageContext.currentPage} pagesCount={pageContext.pagesCount} />
     </Layout>
   )
 }

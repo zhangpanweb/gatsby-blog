@@ -10,6 +10,9 @@ const PostContainer = styled.div`
     padding-top: 50px;
     padding: 50px;
     background: white;
+
+    border: 1px solid #cacaca;
+    border-radius: 5px;
 `;
 
 const PostTitle = styled.h2`
