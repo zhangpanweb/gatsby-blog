@@ -3,7 +3,7 @@ const path = require('path');
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `MarkdownRemark` && node.fileAbsolutePath.match(/.*\/posts\/.*/)) {
     const postName = createFilePath({ node, getNode, basePath: `${__dirname}/posts`, trailingSlash: false });
     createNodeField({
       node,
@@ -17,9 +17,11 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   const postTemplate = path.resolve(`src/templates/post.js`);
 
-  return graphql(`
+  const postPromise = graphql(`
     {
-      allMarkdownRemark{
+      allMarkdownRemark(
+        filter:{fileAbsolutePath:{regex:"/.*\/posts\/.*/"}}
+      ){
         edges{
           node{
             fields{
@@ -42,18 +44,46 @@ exports.createPages = ({ graphql, actions }) => {
 
     const posts = result.data.allMarkdownRemark.edges;
     const postsPerPage = 15;
-    const pagesCount = Math.ceil(posts.length / postsPerPage);
-    Array.from({ length: pagesCount }).forEach((_, i) => {
+    const postPagesCount = Math.ceil(posts.length / postsPerPage);
+    Array.from({ length: postPagesCount }).forEach((_, i) => {
       createPage({
-        path: i === 0 ? '/' : `/${i+1}`,
+        path: i === 0 ? '/' : `/${i + 1}`,
         component: path.resolve("./src/templates/blog-list.js"),
         context: {
           limit: postsPerPage,
           skip: i * postsPerPage,
-          pagesCount,
+          pagesCount: postPagesCount,
           currentPage: i + 1
         }
       })
     })
   })
+
+  const collectionPromise = graphql(`
+    {
+      allMarkdownRemark(
+        filter:{fileAbsolutePath:{regex:"/.*\/collections\/.*/"}}
+      ){
+        totalCount
+      }
+    }
+  `).then(result => {
+    const collectionsCount = result.data.allMarkdownRemark.totalCount;
+    const collectionPerPage = 10;
+    const collectionsPagesCount = Math.ceil(collectionsCount / collectionPerPage);
+    Array.from({ length: collectionsPagesCount }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? '/collections' : `/collections/${i + 1}`,
+        component: path.resolve("./src/templates/collection.js"),
+        context: {
+          limit: collectionPerPage,
+          skip: i * collectionPerPage,
+          pagesCount: collectionsPagesCount,
+          currentPage: i + 1
+        }
+      })
+    })
+  })
+
+  return Promise.all([postPromise, collectionPromise])
 }

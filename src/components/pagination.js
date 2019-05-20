@@ -39,29 +39,29 @@ const Page = styled.a({
   return css;
 });
 
-export default ({ currentPage, pagesCount }) => {
+export default ({ currentPage, pagesCount, baseUrl }) => {
   const handleChangePage = (direction, page) => {
     if (direction === 'prev') {
       if (currentPage === 1) return;
       if (currentPage === 2) {
-        navigate("/");
+        navigate(`${baseUrl}`);
         return;
       }
-      navigate(`${currentPage - 1}`);
+      navigate(`${baseUrl}/${currentPage - 1}`);
     }
 
     if (direction === 'page') {
       if (page === '...') return;
       if (page === 1) {
-        navigate('');
+        navigate(`${baseUrl}`);
         return;
       }
-      navigate(`${page}`);
+      navigate(`${baseUrl}/${page}`);
     }
 
     if (direction === 'next') {
       if (currentPage === pagesCount) return;
-      navigate(`${currentPage + 1}`);
+      navigate(`${baseUrl}/${currentPage + 1}`);
     }
   }
 

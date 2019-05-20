@@ -1,0 +1,6 @@
+#### 移动端适配相关：
+
+- [使用Flexible实现手淘H5页面的终端适配](https://github.com/amfe/article/issues/17)
+- [CSS像素、物理像素、逻辑像素、设备像素比、PPI、Viewport](https://github.com/jawil/blog/issues/21)
+- [移动端页面适配—多方案解析](https://www.jianshu.com/p/3b45aa981e77?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation)
+

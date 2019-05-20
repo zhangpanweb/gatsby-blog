@@ -49,7 +49,8 @@ export default ({ data, pageContext }) => {
   return (
     <Layout pageTitle="渊虹小站">
       {posts.map((post => <PostLink key={post.node.id} node={post.node} />))}
-      <Pagination currentPage={pageContext.currentPage} pagesCount={pageContext.pagesCount} />
+      <Pagination currentPage={pageContext.currentPage} pagesCount={pageContext.pagesCount} 
+        baseUrl="/"/>
     </Layout>
   )
 }
@@ -57,6 +58,7 @@ export default ({ data, pageContext }) => {
 export const query = graphql`
   query($skip: Int!, $limit: Int!){
     allMarkdownRemark(
+      filter:{fileAbsolutePath:{regex:"/.*\/posts\/.*/"}}
       sort:{fields:frontmatter___date,order:DESC}
       limit:$limit
       skip:$skip

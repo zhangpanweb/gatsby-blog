@@ -35,3 +35,7 @@ pre[class*="language-"]{
   background: #313131;
   font-size: 13px;
 }
+
+a{
+  color: black;
+}
