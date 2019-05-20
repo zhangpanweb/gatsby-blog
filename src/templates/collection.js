@@ -2,7 +2,6 @@ import React from "react";
 import { graphql } from 'gatsby';
 import { css } from '@emotion/core';
 
-import Layout from '../components/layout';
 import Pagination from '../components/pagination';
 
 const containerCss = css`
@@ -24,11 +23,11 @@ const containerCss = css`
 export default ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.edges;
   return (
-    <Layout pageTitle="渊虹小站">
+    <>
       {posts.map((post => <div key={post.node.id} dangerouslySetInnerHTML={{__html:post.node.html}} css={containerCss} ></div>))}
       <Pagination currentPage={pageContext.currentPage} pagesCount={pageContext.pagesCount} 
         baseUrl="/collections"/>
-    </Layout>
+    </>
   )
 }
 

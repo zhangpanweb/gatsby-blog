@@ -3,7 +3,6 @@ import { Link, graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import Layout from '../components/layout';
 import Pagination from '../components/pagination';
 
 const titleContainerCss = css`
@@ -47,11 +46,11 @@ const PostLink = ({ node }) => (
 export default ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.edges;
   return (
-    <Layout pageTitle="渊虹小站">
+    <>
       {posts.map((post => <PostLink key={post.node.id} node={post.node} />))}
       <Pagination currentPage={pageContext.currentPage} pagesCount={pageContext.pagesCount} 
         baseUrl="/"/>
-    </Layout>
+    </>
   )
 }
 
