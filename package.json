@@ -10,6 +10,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "new-post": "./scripts/new-post.js",
+    "new-co":"./scripts/new-co.js",
     "minify-font": "./scripts/minify-font.js",
     "pre-deploy": "npm run build && now ./public",
     "deploy": "rm -rf public && rm -rf .cache && gatsby build && node ./scripts/deploy-github.js"
